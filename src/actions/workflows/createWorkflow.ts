@@ -5,8 +5,8 @@ import {
   createWorkflowSchemaType,
 } from "../../../Schema/Workflow";
 import prisma from "@/lib/prisma";
-import { WorkflowStatus } from "../../../type/workflow";
 import { redirect } from "next/navigation";
+import { WorkflowStatus } from "@/type/workflow";
 
 export const CreateWorflow = async (form: createWorkflowSchemaType) => {
   const { success, data } = createWorkflowSchema.safeParse(form);

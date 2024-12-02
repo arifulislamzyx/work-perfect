@@ -2,11 +2,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Workflow } from "@prisma/client";
 import React from "react";
-import { WorkflowStatus } from "../../../../type/workflow";
 import { FileTextIcon, PlayIcon, ShuffleIcon } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import WorkflowActions from "@/components/workflow/WorkflowActions";
+import { WorkflowStatus } from "@/type/workflow";
 
 const statusColor = {
   [WorkflowStatus.DRAFT]: "bg-yellow-400 text-yellow-600",
