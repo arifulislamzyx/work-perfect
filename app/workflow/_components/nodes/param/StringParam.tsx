@@ -1,13 +1,10 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { TaskParams } from "@/type/task";
-import React, { useId } from "react";
+import { ParamProps } from "@/type/appNode";
+import React, { useId, useState } from "react";
 
-interface ParamProps {
-  param: TaskParams;
-}
-
-const StringParam = ({ param }: ParamProps) => {
+const StringParam = ({ param, value, updateNodeParamValue }: ParamProps) => {
+  const [internalValue, setInternalValue] = useState(value);
   const id = useId();
   return (
     <div className="space-y-1 p-1 w-full">
@@ -15,7 +12,14 @@ const StringParam = ({ param }: ParamProps) => {
         {param.name}
         {param.required && <p className="text-red-400 px-2">*</p>}
       </Label>
-      <Input id={id} />
+      <Input
+        className="text-xs"
+        id={id}
+        value={internalValue}
+        placeholder="Enter Value Here"
+        onChange={(e) => setInternalValue(e.target.value)}
+        onBlur={(e) => updateNodeParamValue(e.target.value)}
+      />
       {param.helperText && (
         <p className="text-muted-foreground px-2">{param.helperText}</p>
       )}
