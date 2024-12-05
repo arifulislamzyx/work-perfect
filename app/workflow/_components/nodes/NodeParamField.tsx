@@ -7,9 +7,11 @@ import { AppNode } from "@/type/appNode";
 import BrowserInstanceParam from "./param/BrowserInstanceParam";
 
 const NodeParamField = ({
+  disabled,
   param,
   nodeId,
 }: {
+  disabled: boolean;
   param: TaskParams;
   nodeId: string;
 }) => {
@@ -35,6 +37,7 @@ const NodeParamField = ({
           param={param}
           value={value}
           updateNodeParamValue={updateNodeParamValue}
+          disabled={disabled}
         />
       );
 
