@@ -8,7 +8,7 @@ const Page = async ({ params }: { params: { workflowId: string } }) => {
   const { workflowId } = params;
   const { userId } = await auth();
   if (!userId) {
-    <p>unauthenticated</p>;
+    return <p>unauthenticated</p>;
   }
   const workflow = await prisma.workflow.findUnique({
     where: {
@@ -20,7 +20,7 @@ const Page = async ({ params }: { params: { workflowId: string } }) => {
   await WaitFor(5000);
 
   if (!workflow) {
-    <p>Workflow not found</p>;
+    return <p>Workflow not found</p>;
   }
   return <Editor workflow={workflow}></Editor>;
 };

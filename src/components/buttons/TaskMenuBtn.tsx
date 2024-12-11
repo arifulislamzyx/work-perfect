@@ -7,8 +7,8 @@ import { Button } from "../ui/button";
 const TaskMenuBtn = ({ taskType }: { taskType: TaskType }) => {
   const task = TaskRegistry[taskType];
   const onDrugStart = (event: React.DragEvent, type: TaskType) => {
-    event.dataTransfer.setData("application/reactflow", type),
-      (event.dataTransfer.effectAllowed = "move");
+    event.dataTransfer.setData("application/reactflow", type);
+    event.dataTransfer.effectAllowed = "move";
   };
   return (
     <Button

@@ -16,5 +16,10 @@ export interface TaskParams {
   required?: boolean;
   hideHandle?: boolean;
   // value?: string;
-  [key: string]: any;
+  [key: string]:
+    | string
+    | number
+    | boolean
+    | Record<string, unknown>
+    | undefined;
 }

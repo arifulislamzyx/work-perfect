@@ -1,4 +1,3 @@
-import { Input } from "@/components/ui/input";
 import { TaskParams, TaskParamsType } from "@/type/task";
 import React, { useCallback } from "react";
 import StringParam from "./param/StringParam";
@@ -28,7 +27,7 @@ const NodeParamField = ({
         },
       });
     },
-    [updateNodeData, node?.data.inputs, param.name]
+    [updateNodeData, node?.data.inputs, param.name, nodeId] // nodeId error will occure here
   );
   switch (param.type) {
     case TaskParamsType.STRING:

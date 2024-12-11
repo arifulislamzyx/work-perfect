@@ -1,4 +1,4 @@
-import { CodeIcon, GlobeIcon, LucideProps } from "lucide-react";
+import { CodeIcon, LucideProps } from "lucide-react";
 import { TaskParamsType, TaskType } from "../../../type/task";
 import { WorkflowTask } from "@/type/workflow";
 

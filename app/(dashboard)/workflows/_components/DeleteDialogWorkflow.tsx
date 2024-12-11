@@ -27,7 +27,7 @@ const DeleteDialogWorkflow = ({
   workflowName,
   workflowId,
 }: Props) => {
-  const [confirmText, setConfirmText] = useState<String | null>("");
+  const [confirmText, setConfirmText] = useState<string | null>("");
   const deleteMutaion = useMutation({
     mutationFn: DeleteWorkflow,
     onSuccess: () => {

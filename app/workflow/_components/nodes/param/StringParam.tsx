@@ -17,7 +17,7 @@ const StringParam = ({
     setInternalValue(value);
   }, [value]);
 
-  let Component: any = Input;
+  let Component: React.ElementType = Input;
   if (param.variant === "textarea") {
     Component = Textarea;
   }
@@ -33,8 +33,12 @@ const StringParam = ({
         value={internalValue}
         disabled={disabled}
         placeholder="Enter Value Here"
-        onChange={(e: any) => setInternalValue(e.target.value)}
-        onBlur={(e: any) => updateNodeParamValue(e.target.value)}
+        onChange={(
+          e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+        ) => setInternalValue(e.target.value)}
+        onBlur={(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+          updateNodeParamValue(e.target.value)
+        }
       />
       {param.helperText && (
         <p className="text-muted-foreground px-2">{param.helperText}</p>

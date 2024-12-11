@@ -1,22 +1,22 @@
 "use client";
 import React from "react";
 import { DialogHeader, DialogTitle } from "./ui/dialog";
-import { Icon, LucideIcon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 
 interface Props {
-  title?: String;
-  subTitle?: String;
+  title?: string;
+  subTitle?: string;
   icon?: LucideIcon;
 
-  titleClassName?: String;
-  subTitleClassName?: String;
-  iconClassName?: String;
+  titleClassName?: string;
+  subTitleClassName?: string;
+  iconClassName?: string;
 }
 
 const CustomDialogHeader = (props: Props) => {
-  const Icon = props.icon;
+  // const Icon = props.icon;
   return (
     <DialogHeader className="py-6">
       <DialogTitle asChild>

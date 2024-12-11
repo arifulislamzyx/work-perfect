@@ -8,8 +8,8 @@ const NotFound = () => {
         <h1 className="text-6xl font-bold text-primary mb-4">404</h1>
         <h2 className="text-2xl font-semibold mb-4">Oops! Lost in Space 🚀</h2>
         <h3 className="text-muted-foreground mb-8 max-w-md">
-          The page you're looking for doesn't exist, but don't worry, we've got
-          you covered!
+          The page you&apos;re looking for doesn&apos;t exist, but don&apos;t
+          worry, we&apos;ve got you covered!
         </h3>
 
         <div className="flex text-center justify-center">

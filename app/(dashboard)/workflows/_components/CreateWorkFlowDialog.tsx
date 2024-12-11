@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Layers2Icon, Loader2 } from "lucide-react";
 import CustomDialogHeader from "@/components/CustomDialogHeader";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   createWorkflowSchema,
@@ -55,7 +54,8 @@ const CreateWorkFlowDialog = ({ triggerText }: { triggerText?: string }) => {
     <Dialog
       open={open}
       onOpenChange={(open) => {
-        form.reset(), setOpen(open);
+        form.reset();
+        setOpen(open);
       }}
     >
       <DialogTrigger>
