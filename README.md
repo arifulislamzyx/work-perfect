@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WorkPerfect
 
-## Getting Started
+A modern, feature-rich workflow management SaaS platform built with Next.js, React Flow, and TypeScript.
 
-First, run the development server:
+## 🌟 Features
+
+- **Authentication & Authorization**
+
+  - Secure user authentication powered by Clerk
+  - Role-based access control
+  - Protected routes and API endpoints
+
+- **Workflow Management**
+
+  - Interactive workflow builder using React Flow
+  - Multiple workflow support per user
+  - Real-time workflow validation
+  - Custom node types and connections
+
+- **Modern Tech Stack**
+  - Next.js 14 with App Router
+  - TypeScript for type safety
+  - Prisma ORM for database management
+  - TanStack Query for efficient data fetching
+  - Tailwind CSS with shadcn/ui components
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.x or later
+- npm or yarn
+- A database (PostgreSQL recommended)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/work_perfect.git
+cd work_perfect
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Set up environment variables:
+
+```bash
+cp .env.example .env.local
+```
+
+4. Configure your environment variables:
+
+```env
+# Authentication (Clerk)
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_publishable_key
+CLERK_SECRET_KEY=your_secret_key
+
+# Database
+DATABASE_URL="postgresql://username:password@localhost:5432/work_perfect"
+```
+
+5. Initialize the database:
+
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+6. Start the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏗️ Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+work_perfect/
+├── app/                    # Next.js app directory
+│   ├── api/               # API routes
+│   ├── auth/              # Authentication pages
+│   └── workflows/         # Workflow management pages
+├── components/            # Reusable components
+├── lib/                   # Utility functions and helpers
+├── prisma/               # Database schema and migrations
+└── types/                # TypeScript type definitions
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Built With
 
-## Learn More
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Authentication**: [@clerk/nextjs](https://clerk.dev/)
+- **Database ORM**: [Prisma](https://www.prisma.io/)
+- **UI Components**:
+  - [shadcn/ui](https://ui.shadcn.com/)
+  - [Radix UI](https://www.radix-ui.com/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **State Management**: [@tanstack/react-query](https://tanstack.com/query)
+- **Workflow Engine**: [@xyflow/react](https://reactflow.dev/)
 
-To learn more about Next.js, take a look at the following resources:
+## 📝 API Documentation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Our API endpoints follow RESTful conventions:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `GET /api/workflows` - List all workflows
+- `POST /api/workflows` - Create a new workflow
+- `GET /api/workflows/:id` - Get workflow details
+- `PUT /api/workflows/:id` - Update a workflow
+- `DELETE /api/workflows/:id` - Delete a workflow
 
-## Deploy on Vercel
+## 🤝 Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Support
+
+For support, email support@workperfect.com or open an issue in our GitHub repository.
