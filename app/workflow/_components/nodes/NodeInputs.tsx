@@ -30,7 +30,7 @@ export const NodeInput = ({
     <div
       className={cn(
         "flex justify-start relative p-3 bg-secondary w-full",
-        hasError && "bg-destructive"
+        hasError && "bg-destructive/30 "
       )}
     >
       <NodeParamField param={input} nodeId={nodeId} disabled={isConnected} />
