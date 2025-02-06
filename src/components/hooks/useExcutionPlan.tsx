@@ -2,18 +2,24 @@ import {
   FlowExecutionPlan,
   FlowExecutionValidationError,
 } from "@/lib/workflow/executionPlan";
-import { AppNode } from "@/type/appNode";
+import { AppNode, AppNodeMissingInputs } from "@/type/appNode";
 import { useReactFlow } from "@xyflow/react";
 import { useCallback } from "react";
 import UseFlowValidation from "./useFlowValidation";
+
 import { toast } from "sonner";
+
+type ExecutionValidationError = {
+  type: "NO_ENTRY_POINT" | "INVALID_INPUTS" | "UNKNOWN_ERROR";
+  invalidElements?: AppNodeMissingInputs[]; // Adjust the type if `invalidElements` has a specific structure
+};
 
 const UseExecutionPlan = () => {
   const { toObject } = useReactFlow();
   const { setInvalidInputs, clearErrors } = UseFlowValidation();
 
   const handleError = useCallback(
-    (error: any) => {
+    (error: ExecutionValidationError) => {
       if (!error) return;
 
       switch (error.type) {
@@ -57,6 +63,8 @@ const UseExecutionPlan = () => {
       return result.executionPlan;
     } catch (error) {
       toast.error("Failed to generate execution plan");
+      console.log(error);
+
       return null;
     }
   }, [toObject, handleError, clearErrors]);

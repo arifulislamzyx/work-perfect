@@ -5,13 +5,11 @@ import { FlowExecutionPlan } from "@/lib/workflow/executionPlan";
 import { TaskRegistry } from "@/lib/workflow/task/registry";
 import {
   ExecutionPhaseStatus,
-  WorkflowExecutionPlan,
   WorkflowExecutionStatus,
   WorkflowExecutionTrigger,
 } from "@/type/workflow";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { number } from "zod";
 
 export async function RunWorkflow(form: {
   workflowId: string;
@@ -38,7 +36,7 @@ export async function RunWorkflow(form: {
     throw new Error("workflow not found");
   }
 
-  let executionPlan: WorkflowExecutionPlan;
+  // let executionPlan: WorkflowExecutionPlan;
 
   if (!flowDefination) {
     throw new Error("Flow defination if not Define");
@@ -55,7 +53,7 @@ export async function RunWorkflow(form: {
     throw new Error("no execution plan generated");
   }
 
-  executionPlan = result.executionPlan;
+  const executionPlan = result.executionPlan;
 
   const execution = await prisma.workflowExecution.create({
     data: {

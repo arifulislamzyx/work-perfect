@@ -6,5 +6,9 @@ export default function ExecutionViewerPage({
     workflowId: string;
   };
 }) {
-  return <div>Run Viewer {params.workflowId}</div>;
+  return (
+    <div>
+      Run Viewer {params.workflowId} || {params.executionId}
+    </div>
+  );
 }
